@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
+import { nanoid } from 'nanoid'
 
 import { useTypedStoreActions, useTypedStoreState } from '../../store/hooks'
 import { formatDate } from '../../helpers'
 import { Todo as TodoType } from '../../types/index'
 
+import { Modal } from '../modal/modal'
 import { TodoItem } from './todo-item'
 
 import './todo.scss'
@@ -14,6 +16,7 @@ const Todo = () => {
 
     const {todos} = useTypedStoreState(state => state.todo)
     const {deleteTodo, setCompleted} = useTypedStoreActions(state => state.todo)
+    const {addModal} = useTypedStoreActions(store => store.modal)
 
     useEffect(() => {
         setFilteredTodos(todos)
@@ -24,6 +27,14 @@ const Todo = () => {
         const filtered = todos.filter(el => el.text.toLowerCase().includes(searchText.toLowerCase()))
         setFilteredTodos(filtered)
     }, [searchText])
+
+    const newHandler = () => {
+        const modalId = nanoid()
+
+        const newModal = <Modal key={modalId} onClose={() => {}} children={<div>Test</div>}/>
+
+        addModal({id: modalId, node: newModal})
+    }
 
     return (
         <section className="section todo">
@@ -46,7 +57,7 @@ const Todo = () => {
                         <p className="todo__absence">No one To Do</p>
                 }
             </ul>
-            <button className="todo__create">Create New To Do</button>
+            <button onClick={newHandler} className="todo__create">Create New To Do</button>
         </section>
     )
 }

@@ -10,6 +10,7 @@ interface TodoState {
 interface TodoActions {
     deleteTodo: Action<this, string>
     setCompleted: Action<this, string>
+    addTodo: Action<this, Todo>
 }
 
 interface TodoThunks {}
@@ -32,5 +33,8 @@ export const initialTodoModel: TodoModel = {
     }),
     setCompleted: action((state, payload) => {
         state.todos = state.todos.map(el => el.id === payload ? ({...el, completed: !el.completed}) : el)
+    }),
+    addTodo: action((state, payload) => {
+        state.todos = [...state.todos, payload]
     })
 }
