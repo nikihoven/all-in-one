@@ -1,0 +1,19 @@
+.layout {
+  display: flex;
+  height: 100%;
+  padding: 25px 40px;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px 30px;
+    background-color: var(--blue-primary);
+    gap: 30px;
+  }
+
+  &__title {
+    font-size: 3rem;
+    font-weight: 600;
+  }
+}

@@ -201,7 +201,7 @@
     "@babel/plugin-syntax-jsx" "^7.17.12"
     "@babel/types" "^7.17.12"
 
-"@babel/runtime@^7.7.6":
+"@babel/runtime@^7.15.4", "@babel/runtime@^7.7.6", "@babel/runtime@^7.9.2":
   version "7.18.3"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.18.3.tgz#c7b654b57f6f63cf7f8b418ac9ca04408c4579f4"
   integrity sha512-38Y8f7YUhce/K7RMwTp7m0uCumpv9hZkitCbBClqQIow1qSbCvGkcegKOXpEWCQLfWmevgRiWokZ1GkpfhbZug==
@@ -556,6 +556,17 @@ debug@^4.1.0:
   dependencies:
     ms "2.1.2"
 
+easy-peasy@^5.0.4:
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/easy-peasy/-/easy-peasy-5.0.4.tgz#d124e02ad5639857560ed786a69d39e1470a9dd6"
+  integrity sha512-w4VmPGlUTkXWPmuDLRsdEdagEIGgKYJcnWoasb6NPpizFWrR2smojBLWys7kPrbdd4LIDhLtU2tXh8BIgP4rXw==
+  dependencies:
+    "@babel/runtime" "^7.15.4"
+    immer "^9.0.6"
+    redux "^4.1.1"
+    redux-thunk "^2.3.0"
+    ts-toolbelt "^9.6.0"
+
 electron-to-chromium@^1.4.147:
   version "1.4.161"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.161.tgz#49cb5b35385bfee6cc439d0a04fbba7a7a7f08a1"
@@ -767,6 +778,11 @@ history@^5.2.0:
   dependencies:
     "@babel/runtime" "^7.7.6"
 
+immer@^9.0.6:
+  version "9.0.15"
+  resolved "https://registry.yarnpkg.com/immer/-/immer-9.0.15.tgz#0b9169e5b1d22137aba7d43f8a81a495dd1b62dc"
+  integrity sha512-2eB/sswms9AEUSkOm4SbV5Y7Vmt/bKRwByd52jfLkW4OLYeaTP3EEiJ9agqU0O/tq6Dk62Zfj+TJSqfm1rLVGQ==
+
 immutable@^4.0.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/immutable/-/immutable-4.1.0.tgz#f795787f0db780183307b9eb2091fcac1f6fafef"
@@ -956,6 +972,18 @@ readdirp@~3.6.0:
   dependencies:
     picomatch "^2.2.1"
 
+redux-thunk@^2.3.0:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.4.1.tgz#0dd8042cf47868f4b29699941de03c9301a75714"
+  integrity sha512-OOYGNY5Jy2TWvTL1KgAlVy6dcx3siPJ1wTq741EPyUKfn6W6nChdICjZwCd0p8AZBs5kWpZlbkXW2nE/zjUa+Q==
+
+redux@^4.1.1:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/redux/-/redux-4.2.0.tgz#46f10d6e29b6666df758780437651eeb2b969f13"
+  integrity sha512-oSBmcKKIuIR4ME29/AeNUnl5L+hvBq7OaJWzaptTQJAntaPvxIJqfnjbaEiCzzaIz+XmVILfqAM3Ob0aXLPfjA==
+  dependencies:
+    "@babel/runtime" "^7.9.2"
+
 regenerator-runtime@^0.13.4:
   version "0.13.9"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.9.tgz#8925742a98ffd90814988d7566ad30ca3b263b52"
@@ -1041,6 +1069,11 @@ to-regex-range@^5.0.1:
   integrity sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==
   dependencies:
     is-number "^7.0.0"
+
+ts-toolbelt@^9.6.0:
+  version "9.6.0"
+  resolved "https://registry.yarnpkg.com/ts-toolbelt/-/ts-toolbelt-9.6.0.tgz#50a25426cfed500d4a09bd1b3afb6f28879edfd5"
+  integrity sha512-nsZd8ZeNUzukXPlJmTBwUAuABDe/9qtVDelJeT/qW0ow3ZS3BsQJtNkan1802aM9Uf68/Y8ljw86Hu0h5IUW3w==
 
 typescript@^4.6.3:
   version "4.7.4"
