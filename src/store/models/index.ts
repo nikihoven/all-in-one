@@ -1,5 +1,11 @@
-export interface Model {}
+import { initialTodoModel, TodoModel } from './todo.model'
 
-const model: Model = {}
+export interface Model {
+    todo: TodoModel
+}
+
+const model: Model = {
+    todo: initialTodoModel
+}
 
 export { model }
