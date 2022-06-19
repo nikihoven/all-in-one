@@ -5,7 +5,7 @@ import { useTypedStoreActions, useTypedStoreState } from '../../store/hooks'
 import { formatDate } from '../../helpers'
 import { Todo as TodoType } from '../../types/index'
 
-import { Modal } from '../modal/modal'
+import { CreateTodoModal } from './create-todo.modal'
 import { TodoItem } from './todo-item'
 
 import './todo.scss'
@@ -31,7 +31,7 @@ const Todo = () => {
     const newHandler = () => {
         const modalId = nanoid()
 
-        const newModal = <Modal key={modalId} onClose={() => {}} children={<div>Test</div>}/>
+        const newModal = <CreateTodoModal key={modalId} id={modalId}/>
 
         addModal({id: modalId, node: newModal})
     }
