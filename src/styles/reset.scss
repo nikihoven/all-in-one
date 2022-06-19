@@ -26,3 +26,14 @@ img {
 :focus-visible {
   outline: none;
 }
+
+button {
+  display: flex;
+  cursor: pointer;
+  color: var(--dark--primary);
+  border-width: 0;
+  border-style: none;
+  border-color: transparent;
+  border-image: none;
+  background-color: transparent;
+}
