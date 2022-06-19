@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
 import { ReactComponent as HomeIcon } from './images/home.svg'
+import { ReactComponent as TodoIcon } from './images/todo.svg'
 
 import './sidebar.scss'
 
@@ -25,6 +26,15 @@ const Sidebar = () => {
                 >
                     <HomeIcon className="nav__icon"/>
                     <span className="nav__text">Home</span>
+                </NavLink>
+                <NavLink
+                    className={
+                        ({isActive}) => ['nav__link', isActive ? 'nav__link--active' : null].filter(Boolean).join(' ')
+                    }
+                    to="/todo"
+                >
+                    <TodoIcon className="nav__icon"/>
+                    <span className="nav__text">To Do</span>
                 </NavLink>
             </ul>
         </aside>

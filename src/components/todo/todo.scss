@@ -1,0 +1,80 @@
+.todo {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 30px;
+
+  &__search {
+    font-size: 2rem;
+    font-weight: 200;
+    width: 100%;
+    padding: 15px 30px;
+    outline: none;
+    background-color: var(--blue-secondary);
+
+    &:focus {
+      outline: 2px var(--light-primary) solid;
+    }
+  }
+
+  &__list {
+    display: flex;
+    overflow-y: scroll;
+    flex: 1 1 0;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  &__absence {
+    font-size: 3rem;
+  }
+
+  &__item {
+    display: grid;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0 1rem 2rem;
+    background-color: var(--blue-secondary);
+    grid-template-columns: 3rem auto max-content 6rem;
+
+    .item {
+      &__completed {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+      }
+
+      &__text {
+        font-size: 2rem;
+        padding: 0 2rem;
+
+        &--completed {
+          text-decoration: line-through;
+        }
+      }
+
+      &__delete {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+      }
+
+      &__date {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  &__create {
+    font-size: 2rem;
+    width: max-content;
+    padding: .5em 3em;
+    background-color: var(--blue-secondary);
+
+    &:active {
+      transform: scale(1.03);
+    }
+  }
+}

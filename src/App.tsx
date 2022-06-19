@@ -5,6 +5,7 @@ import { Layout } from './routing/layout/layout'
 import { Sidebar } from './components/sidebar/sidebar'
 
 import { MainPage } from './pages/main.page'
+import { TodoPage } from './pages/todo.page'
 
 const App = () => {
 
@@ -14,6 +15,7 @@ const App = () => {
             <Routes>
                 <Route element={<Layout/>}>
                     <Route element={<MainPage/>} path="/"/>
+                    <Route element={<TodoPage/>} path="/todo"/>
                 </Route>
             </Routes>
         </>
