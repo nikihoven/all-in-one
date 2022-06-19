@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 import { ReactComponent as HomeIcon } from './images/home.svg'
 import { ReactComponent as TodoIcon } from './images/todo.svg'
+import { ReactComponent as ComparerIcon } from './images/comparer.svg'
 
 import './sidebar.scss'
 
@@ -35,6 +36,15 @@ const Sidebar = () => {
                 >
                     <TodoIcon className="nav__icon"/>
                     <span className="nav__text">To Do</span>
+                </NavLink>
+                <NavLink
+                    className={
+                        ({isActive}) => ['nav__link', isActive ? 'nav__link--active' : null].filter(Boolean).join(' ')
+                    }
+                    to="/comparer"
+                >
+                    <ComparerIcon className="nav__icon"/>
+                    <span className="nav__text">Comparer</span>
                 </NavLink>
             </ul>
         </aside>
