@@ -37,3 +37,22 @@ button {
   border-image: none;
   background-color: transparent;
 }
+
+input {
+  display: flex;
+  color: var(--color);
+  border-width: 0;
+  border-style: none;
+  border-color: transparent;
+  border-image: none;
+  background-color: transparent;
+  --color: var(--dark--primary);
+
+  &::placeholder {
+    color: var(--color);
+  }
+}
+
+button, input, input::placeholder {
+  font-family: var(--font);
+}
