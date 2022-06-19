@@ -77,4 +77,31 @@
       transform: scale(1.03);
     }
   }
+
+  &__form {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 40px;
+
+    .form {
+      &__input {
+        width: 100%;
+        font-size: 2rem;
+        padding: .5em 3em;
+        outline: 3px var(--dark--primary) solid;
+      }
+
+      &__button {
+        width: 100%;
+        font-size: 2rem;
+        background-color: var(--blue-secondary);
+        padding: .5em 3em;
+        display: flex;
+        justify-content: center;
+        font-family: var(--font);
+      }
+    }
+  }
 }
