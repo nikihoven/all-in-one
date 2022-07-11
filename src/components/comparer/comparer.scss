@@ -1,3 +1,39 @@
 .comparer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
 
+  &__image {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    &--main {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    &--reducible {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  &__line {
+    touch-action: none;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 20px;
+    height: 100%;
+    background-color: var(--dark--primary);
+    cursor: pointer;
+  }
 }
