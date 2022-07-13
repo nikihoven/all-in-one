@@ -13,12 +13,11 @@
   &__card {
     position: relative;
     min-width: 50%;
-    max-width: 80%;
+    min-height: 20%;
     padding: 20px;
     border-radius: 2px;
-    background-color: white;
     box-shadow: 0 0 15px 2px rgb(0, 0, 0, 23%);
-    aspect-ratio: 5 / 3;
+    background-color: white;
   }
 
   &__title {

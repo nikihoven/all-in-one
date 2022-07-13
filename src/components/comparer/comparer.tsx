@@ -1,4 +1,9 @@
-import { FC, useEffect, useRef, useState } from 'react'
+import { FC, useRef } from 'react'
+
+import { nanoid } from 'nanoid'
+
+import { useTypedStoreActions } from '../../store/hooks'
+import { ComparerModal } from './comparer.modal'
 
 import './comparer.scss'
 
@@ -8,74 +13,41 @@ interface IComparerProps {
 }
 
 const Comparer: FC<IComparerProps> = ({left, right}) => {
-    const [offset, setOffset] = useState(50)
-    const [isDown, setIsDown] = useState(false)
-    const ref = useRef<HTMLDivElement>(null)
+    const {addModal} = useTypedStoreActions(state => state.modal)
 
-    useEffect(() => {
-        if (!ref.current) return
+    const widthRatioRef = useRef<HTMLInputElement | null>(null)
+    const heightRatioRef = useRef<HTMLInputElement | null>(null)
 
-        console.log(ref.current.clientWidth)
+    const newHandler = () => {
+        const modalId = nanoid()
 
-        const handleUp = () => setIsDown(false)
+        if (!widthRatioRef.current?.value || !heightRatioRef.current?.value || +widthRatioRef.current?.value / +heightRatioRef.current?.value > 3 || +heightRatioRef.current?.value / +widthRatioRef.current?.value > 1.2) return
 
-        window.addEventListener('mouseup', handleUp)
-        window.addEventListener('touchend', handleUp)
+        const newModal = <ComparerModal
+            key={modalId}
+            id={modalId}
+            leftImage={left}
+            rightImage={right}
+            widthRatio={+widthRatioRef.current?.value}
+            heightRatio={+heightRatioRef.current?.value}
+        />
 
-        return () => {
-            window.removeEventListener('mouseup', handleUp)
-            window.removeEventListener('touchend', handleUp)
-        }
-    }, [])
-
-    useEffect(() => {
-        const handleMove = (e: MouseEvent | TouchEvent) => {
-            setOffset(x => computeState(x, e))
-        }
-
-        if (isDown) {
-            window.addEventListener('mousemove', handleMove)
-            window.addEventListener('touchmove', handleMove)
-        }
-
-        return () => {
-            window.removeEventListener('mousemove', handleMove)
-            window.removeEventListener('touchmove', handleMove)
-        }
-    }, [isDown])
-
-    const down = () => {
-        setIsDown(true)
-    }
-
-    const computeState = (x: number, e: MouseEvent | TouchEvent) => {
-        if (!ref.current) return 0
-
-        let pos: number
-
-        if ('movementX' in e) {
-            console.log(e.movementX)
-            pos = x + e.movementX / ref.current.clientWidth * 100
-        } else {
-            pos = (e.touches[0].pageX - ref.current.offsetLeft) / ref.current.clientWidth * 100
-        }
-
-        if (pos >= 0 && pos <= 100) {
-            return pos
-        }
-
-        return x
+        addModal({id: modalId, node: newModal})
     }
 
     return (
         <section className="comparer">
-            <div ref={ref} className="comparer__image comparer__image--main" style={{backgroundImage: `url(${right})`}}>
-                <div className="comparer__image comparer__image--reducible" style={{
-                    backgroundImage: `url(${left})`,
-                    clipPath: `polygon(0% 0%, ${offset}% 0%, ${offset}% 100%, 0% 100%)`
-                }}/>
-                <div className="comparer__line" onMouseDown={down} onTouchStart={down} style={{left: `${offset}%`}}/>
+            <div className="comparer__ratio">
+                <label className="comparer__input">
+                    Width ratio
+                    <input ref={widthRatioRef} type="text"/>
+                </label>
+                <label className="comparer__input">
+                    Height ratio
+                    <input ref={heightRatioRef} type="text"/>
+                </label>
             </div>
+            <button className="comparer__button" onClick={newHandler}>Compare</button>
         </section>
     )
 }
