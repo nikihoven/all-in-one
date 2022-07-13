@@ -19,9 +19,9 @@
 
   &__list {
     display: flex;
-    overflow-y: scroll;
     flex: 1 1 0;
     flex-direction: column;
+    overflow-y: scroll;
     gap: 15px;
   }
 
@@ -32,10 +32,10 @@
   &__item {
     display: grid;
     align-items: center;
+    grid-template-columns: 3rem auto max-content 6rem;
     width: 100%;
     padding: 1rem 0 1rem 2rem;
     background-color: var(--blue-secondary);
-    grid-template-columns: 3rem auto max-content 6rem;
 
     .item {
       &__completed {
@@ -79,28 +79,28 @@
   }
 
   &__form {
-    margin-top: 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-top: 30px;
     gap: 40px;
 
     .form {
       &__input {
-        width: 100%;
         font-size: 2rem;
+        width: 100%;
         padding: .5em 3em;
         outline: 3px var(--dark--primary) solid;
       }
 
       &__button {
-        width: 100%;
+        font-family: var(--font);
         font-size: 2rem;
-        background-color: var(--blue-secondary);
-        padding: .5em 3em;
         display: flex;
         justify-content: center;
-        font-family: var(--font);
+        width: 100%;
+        padding: .5em 3em;
+        background-color: var(--blue-secondary);
       }
     }
   }
