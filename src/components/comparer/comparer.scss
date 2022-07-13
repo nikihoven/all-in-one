@@ -11,6 +11,13 @@
     gap: 50px;
   }
 
+  &__files {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 20px;
+  }
+
   &__input {
     font-size: 1.3rem;
     display: flex;
