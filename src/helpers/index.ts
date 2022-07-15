@@ -6,3 +6,8 @@ export const formatDate = (date: Date) => {
     // 1 January 2022 12:10
     return `${date.getDate()} ${monthNames[date.getMonth()]} ${date.getFullYear()} ${date.getHours() < 10 ? '0' + date.getHours() : date.getHours()}:${date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()}`
 }
+
+export const formatTime = (time: number) => {
+    // 1 to 01, 21 to 21
+    return time < 10 ? '0' + time : time
+}
